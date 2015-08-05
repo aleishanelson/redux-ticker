@@ -16,7 +16,7 @@ export default class TickerApp extends Component {
 	renderChild({ ticker, dispatch }) {
 		const actions = bindActionCreators(TickerActions, dispatch);
 		return (
-			<Ticker ticker={ticker} startTick={actions.tick}/>
+			<Ticker ticker={ticker} startTick={actions.tick} stopTick={actions.stopTick} />
 		);
 	}
 }

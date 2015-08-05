@@ -1,9 +1,18 @@
-import { TICK } from '../constants/ActionTypes';
+import { TICK , STOP_TICK } from '../constants/ActionTypes';
 
-export default function ticker(state = 0, action) {
+
+const initialState = {
+	count: 0,
+	start: false
+};
+
+export default function ticker(state = initialState, action) {
 	switch (action.type) {
 		case TICK:
-			return state + 1;
+			return { ...state, count: state.count + 1, start: true };
+
+		case STOP_TICK:
+			return { ...state, start: false };
 
 		default:
 			return state;
